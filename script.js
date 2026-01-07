@@ -69,3 +69,39 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  menuToggle.classList.toggle("open");
+});
+
+/* Close menu on link click (mobile) */
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const status = document.getElementById("formStatus");
+
+  fetch("sendmail.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(() => {
+    status.textContent = "Message sent successfully!";
+    status.style.color = "#00f7ff";
+    this.reset();
+  })
+  .catch(() => {
+    status.textContent = "Something went wrong!";
+    status.style.color = "red";
+  });
+});
