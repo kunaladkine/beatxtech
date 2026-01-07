@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeatXTech | Student Tech Agency</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Beat<span>X</span>Tech</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="menu" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <section class="hero" id="home">
+    <!-- Animated Background -->
+    <div class="hero-bg">
+      <span class="blob blob1"></span>
+      <span class="blob blob2"></span>
+      <span class="blob blob3"></span>
+    </div>
+
+    <div class="hero-content">
+      <h1>
+        Empowering <span>Students</span><br />
+        Through <span>Technology</span>
+      </h1>
+
+      <p class="hero-desc">
+        BeatXTech is a student-focused tech agency providing
+        <strong>Web Development</strong>, <strong>College Projects</strong>,
+        <strong>PPTs</strong>, <strong>Assignments</strong> & complete
+        <strong>career guidance</strong>.
+      </p>
+
+      <div class="hero-points">
+        <span>✔ Affordable</span>
+        <span>✔ On-Time Delivery</span>
+        <span>✔ Beginner Friendly</span>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="#services" class="btn primary">Explore Services</a>
+        <a href="#contact" class="btn outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Services -->
+  <section class="services-pro" id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <p class="service-sub">
+        Complete tech solutions designed specially for students & professionals
+      </p>
+
+      <div class="services-cards">
+        <div class="service-card">
+          <span>🌐</span>
+          <h3>Web Development</h3>
+          <p>
+            Responsive, modern websites including portfolios, business sites,
+            landing pages, and static websites.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <span>🎓</span>
+          <h3>College Projects</h3>
+          <p>
+            Mini & final year projects in Python, Django, Web Development,
+            Data Analytics with full documentation.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <span>📊</span>
+          <h3>PPT & Assignments</h3>
+          <p>
+            Professional presentations, reports, assignments, and documentation
+            with clean formatting.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <span>🧠</span>
+          <h3>Student Guidance</h3>
+          <p>
+            Project selection, career roadmap, technology guidance, and
+            concept explanation support.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <span>🛠</span>
+          <h3>Tech Support</h3>
+          <p>
+            Debugging, error fixing, optimization, and improvement of existing
+            code or projects.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <span>🚀</span>
+          <h3>Skill Development</h3>
+          <p>
+            Learn HTML, CSS, JavaScript, Python, Django, and modern tools
+            with real-world practice.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About -->
+  <section class="why" id="about">
+    <div class="container">
+      <h2>Why Choose BeatXTech?</h2>
+
+      <div class="why-cards">
+        <div class="why-card">
+          <span>🎓</span>
+          <h3>Student-Focused Approach</h3>
+          <p>We understand student needs and deliver simple, effective, and practical solutions.</p>
+        </div>
+
+        <div class="why-card">
+          <span>⚡</span>
+          <h3>On-Time Delivery</h3>
+          <p>Deadlines matter. We ensure timely submission without compromising quality.</p>
+        </div>
+
+        <div class="why-card">
+          <span>💡</span>
+          <h3>Practical Learning</h3>
+          <p>Our work is not just delivery — we explain concepts to help you learn.</p>
+        </div>
+
+        <div class="why-card">
+          <span>🛠</span>
+          <h3>Complete Tech Support</h3>
+          <p>From idea to execution, we guide you at every step.</p>
+        </div>
+
+        <div class="why-card">
+          <span>🤝</span>
+          <h3>Affordable Pricing</h3>
+          <p>High-quality services designed for student budgets.</p>
+        </div>
+
+        <div class="why-card">
+          <span>🚀</span>
+          <h3>Modern Tech Stack</h3>
+          <p>We use updated tools and technologies for future-ready solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact -->
+  <section class="contact-pro" id="contact">
+    <h2>Contact Us</h2>
+  
+
+    <div class="contact-wrapper">
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <form action="sendmail.php" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+ <footer class="footer-top">
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <a href="#contact">Contact Us</a>
+      <a href="about">About</a>
+      <a href="#services">Services</a>
+    </div>
+
+    <div class="footer-right">
+      <span>Follow us:</span>
+      
+      <a href="https://www.instagram.com/beatxtech" aria-label="Instagram">📸</a>
+    </div>
+
+  </div>
+</footer>
+
+<footer class="footer-bottom">
+  © 2026 BeatXTech. All Rights Reserved.
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
