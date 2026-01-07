@@ -509,3 +509,107 @@ body {
     font-size: 32px;
   }
 }
+
+
+/* ===== RESOURCE HERO ===== */
+.resource-hero {
+  padding: 140px 20px 80px;
+  text-align: center;
+  background: linear-gradient(135deg, #111735, #0b1022);
+}
+
+.resource-hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.resource-hero p {
+  opacity: 0.8;
+}
+
+/* ===== RESOURCES GRID ===== */
+.resources {
+  padding: 100px 0;
+}
+
+.resources .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Resource Card */
+.resource-card {
+  background: linear-gradient(145deg, #111735, #0b1022);
+  padding: 40px 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(0,247,255,0.08);
+  text-align: center;
+  transition: 0.4s;
+}
+
+.resource-card span {
+  font-size: 46px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.resource-card h2 {
+  color: #00f7ff;
+  margin-bottom: 10px;
+}
+
+.resource-card p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 25px;
+}
+
+.resource-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0,247,255,0.15);
+}
+
+/* Button */
+.resource-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 30px;
+  background: #00f7ff;
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* ===== CTA ===== */
+.resource-cta {
+  padding: 80px 20px;
+  text-align: center;
+  background: #0f152a;
+}
+
+.resource-cta h2 {
+  font-size: 34px;
+}
+
+.resource-cta p {
+  opacity: 0.8;
+  margin: 10px 0 25px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .resources .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .resources .container {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-hero h1 {
+    font-size: 32px;
+  }
+}
