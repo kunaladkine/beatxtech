@@ -1,107 +1,88 @@
-function toggleMenu() {
-  document.querySelector("nav").classList.toggle("active");
-}
-
-// Scroll animation
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".card").forEach(card => {
-    const pos = card.getBoundingClientRect().top;
-    if (pos < window.innerHeight - 100) {
-      card.style.opacity = 1;
-      card.style.transform = "translateY(0)";
-    }
-  });
-});
-
-// Why BeatXTech scroll animation
-const whyCards = document.querySelectorAll(".why-card");
-
-window.addEventListener("scroll", () => {
-  whyCards.forEach(card => {
-    const cardTop = card.getBoundingClientRect().top;
-    if (cardTop < window.innerHeight - 100) {
-      card.style.opacity = "1";
-      card.style.transform = "translateY(0)";
-    }
-  });
-});
-
-
-// Services scroll reveal animation
-const serviceCards = document.querySelectorAll(".service-card");
-
-window.addEventListener("scroll", () => {
-  serviceCards.forEach(card => {
-    const top = card.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      card.style.opacity = "1";
-      card.style.transform = "translateY(0)";
-    }
-  });
-});
-
-
-// Contact section animation
-const contactElements = document.querySelectorAll(
-  ".contact-card, .contact-form"
-);
-
-window.addEventListener("scroll", () => {
-  contactElements.forEach(el => {
-    const pos = el.getBoundingClientRect().top;
-    if (pos < window.innerHeight - 100) {
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
-    }
-  });
-});
-
-const animatedElements = document.querySelectorAll(
-  ".service-card, .why-card, .contact-form"
-);
-
-window.addEventListener("scroll", () => {
-  animatedElements.forEach(el => {
-    const pos = el.getBoundingClientRect().top;
-    if (pos < window.innerHeight - 100) {
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
-    }
-  });
-});
-
+/* =====================
+   Navbar Elements
+===================== */
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
+const navbar = document.querySelector(".navbar");
 
+/* =====================
+   Toggle Mobile Menu
+===================== */
 menuToggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
-  menuToggle.classList.toggle("open");
+  menuToggle.classList.toggle("active");
 });
 
-/* Close menu on link click (mobile) */
+/* =====================
+   Close Menu On Link Click
+===================== */
 document.querySelectorAll(".nav-links a").forEach(link => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("active");
+    menuToggle.classList.remove("active");
   });
 });
 
-document.getElementById("contactForm").addEventListener("submit", function (e) {
+/* =====================
+   Navbar Scroll Effect
+===================== */
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
+
+/* =====================
+   WhatsApp CTA Show After Scroll
+===================== */
+const whatsappBtn = document.querySelector(".whatsapp-float");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    whatsappBtn.style.opacity = "1";
+    whatsappBtn.style.pointerEvents = "auto";
+  } else {
+    whatsappBtn.style.opacity = "0";
+    whatsappBtn.style.pointerEvents = "none";
+  }
+});
+
+/* =====================
+   Project Enquiry WhatsApp
+===================== */
+const enquiryForm = document.getElementById("enquiryForm");
+const enquiryStatus = document.getElementById("enquiryStatus");
+
+enquiryForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const formData = new FormData(this);
-  const status = document.getElementById("formStatus");
+  const name = this.name.value;
+  const email = this.email.value;
+  const phone = this.phone.value;
+  const project = this.project_type.value;
+  const tech = this.technology.value;
+  const message = this.message.value;
 
-  fetch("sendmail.php", {
-    method: "POST",
-    body: formData
-  })
-  .then(() => {
-    status.textContent = "Message sent successfully!";
-    status.style.color = "#00f7ff";
-    this.reset();
-  })
-  .catch(() => {
-    status.textContent = "Something went wrong!";
-    status.style.color = "red";
-  });
+  const whatsappNumber = "919130537754"; // replace with your number
+
+  const whatsappMessage = 
+`Hello BeatXTech 👋
+Name: ${name}
+Email: ${email}
+WhatsApp: ${phone}
+Project Type: ${project}
+Technology: ${tech}
+Message: ${message}`;
+
+  const whatsappURL = 
+`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  window.open(whatsappURL, "_blank");
+
+  enquiryStatus.style.color = "#16a34a";
+  enquiryStatus.textContent = "✔ Enquiry sent successfully via WhatsApp";
+
+  this.reset();
 });
