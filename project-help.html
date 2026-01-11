@@ -102,13 +102,29 @@
   </nav>
 
   <!-- ================= PAGE HEADER ================= -->
-  <section data-aos="fade-up" class="pt-36 pb-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white text-center">
-    <h1 class="text-5xl font-extrabold mb-4">Project Assistance</h1>
-    <p class="max-w-3xl mx-auto text-lg opacity-90">
+  <section
+  data-aos="fade-up"
+  class="relative pt-36 pb-20 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white text-center overflow-hidden">
+
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/30"></div>
+
+  <!-- Glow accents -->
+  <div class="absolute -top-24 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-24 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6">
+    <h1 class="text-5xl font-extrabold mb-4">
+      Project <span class="text-cyan-400">Assistance</span>
+    </h1>
+
+    <p class="text-lg text-slate-300">
       BeatXTech provides complete project support — from idea to final submission —
-      with proper documentation and viva explanation.
+      with proper documentation and clear viva explanation.
     </p>
-  </section>
+  </div>
+</section>
+
 
   <!-- ================= PROJECTS GRID ================= -->
   <section data-aos="fade-up" class="py-24">
@@ -224,8 +240,8 @@
   </section>
 
   <!-- ================= CTA ================= -->
-  <section data-aos="fade-right" class="py-24 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center">
-    <h2 class="text-4xl font-bold mb-6">Need a Custom Project?</h2>
+  <section class="py-24 bg-gradient-to-r from-slate-900 via-indigo-900 to-purple-900 text-white text-center">
+<h2 class="text-4xl font-bold mb-6">Need a Custom Project?</h2>
     <p class="mb-8">Tell us your syllabus & requirements.</p>
     <a href="contact.html"
       class="px-10 py-4 rounded-full bg-white text-blue-600 font-semibold hover:scale-105 transition">
