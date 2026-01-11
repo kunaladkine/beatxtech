@@ -2,261 +2,348 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BeatXTech | Student Tech Agency</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BeatxTech | Smart Solutions</title>
+  <meta name="description" content="Digital services, student help, project assistance & technical consultation">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 0 40px rgba(99,102,241,0.3)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: linear-gradient(135deg, #25D366, #1EBE5D);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 25px rgba(37, 211, 102, 0.45);
+      z-index: 9999;
+      animation: pulse 2s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+      }
+
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+  </style>
 
 </head>
 
-<body>
+<body class="bg-slate-50 font-sans">
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="nav-container">
+  <!-- ================= NAVBAR ================= -->
+  <nav class="fixed w-full top-0 z-50 backdrop-blur bg-white/80 border-b">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-      <div class="logo">
-        Beat<span>X</span>Tech
-      </div>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="/resources.html">Free Resources</a>
-      </nav>
-
-      <div class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-    </div>
-  </header>
-
-
-  <section class="hero" id="home">
-    <!-- Animated Background -->
-    <div class="hero-bg">
-      <span class="blob blob1"></span>
-      <span class="blob blob2"></span>
-      <span class="blob blob3"></span>
-    </div>
-
-    <div class="hero-content">
-      <h1>
-        Empowering <span>Students</span><br />
-        Through <span>Technology</span>
+      <h1 class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        BeatxTech
       </h1>
 
-      <p class="hero-desc">
-        BeatXTech is a student-focused tech agency providing
-        <strong>Web Development</strong>, <strong>College Projects</strong>,
-        <strong>PPTs</strong>, <strong>Assignments</strong> & complete
-        <strong>career guidance</strong>.
-      </p>
+      <ul class="hidden md:flex gap-8 font-medium">
+        <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+        <li><a href="about.html" class="hover:text-blue-600">About</a></li>
+        <li><a href="services.html" class="hover:text-blue-600">Services</a></li>
+        <li><a href="project-help.html" class="hover:text-blue-600">Projects</a></li>
+        <li>
+          <a href="contact.html"
+            class="px-5 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-glow">
+            Contact
+          </a>
+        </li>
+      </ul>
 
-      <div class="hero-points">
-        <span>✔ Affordable</span>
-        <span>✔ On-Time Delivery</span>
-        <span>✔ Beginner Friendly</span>
-      </div>
-
-      <div class="hero-buttons">
-        <a href="#services" class="btn primary">Explore Services</a>
-        <a href="#contact" class="btn outline">Contact Us</a>
-      </div>
+      <button class="md:hidden text-2xl" onclick="toggleMenu()">☰</button>
     </div>
-  </section>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white px-6 pb-4">
+      <a class="block py-2" href="index.html">Home</a>
+      <a class="block py-2" href="about.html">About</a>
+      <a class="block py-2" href="services.html">Services</a>
+      <a class="block py-2" href="project-help.html">Projects</a>
+      <a class="block py-2" href="contact.html">Contact</a>
+    </div>
+  </nav>
 
 
-  <!-- Services -->
-  <section class="services-pro" id="services">
-    <div class="container">
-      <h2>Our Services</h2>
-      <p class="service-sub">
-        Complete tech solutions designed specially for students & professionals
-      </p>
+  <!-- ================= HERO ================= -->
+  <section data-aos="fade-up"
+    class="pt-36 pb-28 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
 
-      <div class="services-cards">
-        <div class="service-card">
-          <span>🌐</span>
-          <h3>Web Development</h3>
-          <p>
-            Responsive, modern websites including portfolios, business sites,
-            landing pages, and static websites.
-          </p>
-        </div>
+      <div>
+        <h1 class="text-5xl font-extrabold leading-tight">
+          Smart Solutions<br>
+          <span class="text-cyan-300">Technical Solutions for Students</span>
+        </h1>
 
-        <div class="service-card">
-          <span>🎓</span>
-          <h3>College Projects</h3>
-          <p>
-            Mini & final year projects in Python, Django, Web Development,
-            Data Analytics with full documentation.
-          </p>
-        </div>
+        <p class="mt-6 text-lg opacity-90">
+          BeatXTech helps school & college students with assignments, practicals, projects, coding support and expert
+          academic guidance — simple, affordable and reliable.</p>
 
-        <div class="service-card">
-          <span>📊</span>
-          <h3>PPT & Assignments</h3>
-          <p>
-            Professional presentations, reports, assignments, and documentation
-            with clean formatting.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <span>🧠</span>
-          <h3>Student Guidance</h3>
-          <p>
-            Project selection, career roadmap, technology guidance, and
-            concept explanation support.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <span>🛠</span>
-          <h3>Tech Support</h3>
-          <p>
-            Debugging, error fixing, optimization, and improvement of existing
-            code or projects.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <span>🚀</span>
-          <h3>Skill Development</h3>
-          <p>
-            Learn HTML, CSS, JavaScript, Python, Django, and modern tools
-            with real-world practice.
-          </p>
+        <div class="mt-8 flex gap-4">
+          <a href="contact.html"
+            class="px-8 py-4 rounded-full bg-white text-blue-600 font-semibold hover:scale-105 transition">
+            Get Started
+          </a>
+          <a href="services.html" class="px-8 py-4 rounded-full border border-white/50 hover:bg-white/10 transition">
+            View Services
+          </a>
         </div>
       </div>
-    </div>
-  </section>
 
-
-  <!-- About -->
-  <section class="why" id="about">
-    <div class="container">
-      <h2>Why Choose BeatXTech?</h2>
-
-      <div class="why-cards">
-        <div class="why-card">
-          <span>🎓</span>
-          <h3>Student-Focused Approach</h3>
-          <p>We understand student needs and deliver simple, effective, and practical solutions.</p>
+      <div class="hidden md:block">
+        <div class="bg-white/10 backdrop-blur p-10 rounded-3xl shadow-2xl">
+          <p class="text-xl font-semibold">🚀 Trusted by 1000+ Students</p>
+          <p class="mt-2 opacity-80">Projects • Exams • Digital Growth</p>
         </div>
-
-        <div class="why-card">
-          <span>⚡</span>
-          <h3>On-Time Delivery</h3>
-          <p>Deadlines matter. We ensure timely submission without compromising quality.</p>
-        </div>
-
-        <div class="why-card">
-          <span>💡</span>
-          <h3>Practical Learning</h3>
-          <p>Our work is not just delivery — we explain concepts to help you learn.</p>
-        </div>
-
-        <div class="why-card">
-          <span>🛠</span>
-          <h3>Complete Tech Support</h3>
-          <p>From idea to execution, we guide you at every step.</p>
-        </div>
-
-        <div class="why-card">
-          <span>🤝</span>
-          <h3>Affordable Pricing</h3>
-          <p>High-quality services designed for student budgets.</p>
-        </div>
-
-        <div class="why-card">
-          <span>🚀</span>
-          <h3>Modern Tech Stack</h3>
-          <p>We use updated tools and technologies for future-ready solutions.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Contact -->
-  <section class="contact-pro" id="contact">
-    <h2>Contact Us</h2>
-
-
-    <div class="contact-wrapper">
-
-      <!-- Contact Form -->
-      <div class="contact-form">
-        <h3>Send a Message</h3>
-        <form id="contactForm">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-
-        <p id="formStatus"></p>
-
       </div>
 
     </div>
   </section>
 
-
-  <footer class="footer-top">
-    <div class="footer-container">
-
-      <div class="footer-left">
-        <a href="#contact">Contact Us</a>
-        <a href="about">About</a>
-        <a href="#services">Services</a>
-        <a href="/resources.html">Resources</a>
+  <!-- ================= STATS ================= -->
+  <section data-aos="fade-up" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 text-center gap-10">
+      <div>
+        <h3 class="text-4xl font-bold text-blue-600">1000+</h3>
+        <p class="text-gray-600">Students Helped</p>
       </div>
+      <div>
+        <h3 class="text-4xl font-bold text-blue-600">10+</h3>
+        <p class="text-gray-600">Projects Completed</p>
+      </div>
+      <div>
+        <h3 class="text-4xl font-bold text-blue-600">95%+</h3>
+        <p class="text-gray-600"> Student Satisfaction</p>
+      </div>
+      <div>
+        <h3 class="text-4xl font-bold text-blue-600">5★</h3>
+        <p class="text-gray-600">Client Satisfaction</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="footer-right">
-  <span>Follow us:</span>
+  <!-- ================= SERVICES ================= -->
+  <section data-aos="fade-up" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">Our Services</h2>
 
-  <a href="https://www.instagram.com/beatxtech" aria-label="Instagram" target="_blank">
-    <img src="instagram.png" alt="Instagram" class="social-icon">
-  </a>
-</div>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="p-8 bg-white rounded-3xl shadow hover:shadow-2xl transition">
+          <h3 class="text-xl font-semibold">Website Development</h3>
+          <p class="mt-3 text-gray-600">Modern, responsive websites for students, startups and small businesses —
+            perfect for portfolios, projects and real-world learning.</p>
+        </div>
 
-  </footer>
+        <div class="p-8 bg-white rounded-3xl shadow hover:shadow-2xl transition">
+          <h3 class="text-xl font-semibold">Student Academic Help</h3>
+          <p class="mt-3 text-gray-600">Assignment writing, practical files, lab records, notes, PPTs and exam-oriented
+            study material — prepared as per syllabus.</p>
+        </div>
 
-  <footer class="footer-bottom">
-    © 2026 BeatXTech. All Rights Reserved.
-  </footer>
-<!-- Left Side WhatsApp Button -->
-<a
-  href="https://wa.me/919130537754?text=Hello%20BeatXTech%2C%20I%20need%20help%20with%20a%20project"
-  class="whatsapp-left"
-  target="_blank"
-  aria-label="Chat on WhatsApp"
->
-  <span class="wa-icon">
-    <!-- WhatsApp SVG -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-      <path fill="#fff" d="M19.11 17.23c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.63.14-.19.28-.72.9-.88 1.09-.16.19-.32.21-.6.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.19-.28.28-.46.09-.19.05-.35-.02-.49-.07-.14-.63-1.52-.86-2.08-.23-.56-.46-.48-.63-.49h-.54c-.19 0-.49.07-.74.35-.25.28-.97.95-.97 2.32s.99 2.69 1.13 2.88c.14.19 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.12-.25-.19-.53-.32z"/>
-      <path fill="#fff" d="M16.03 3C8.84 3 3 8.85 3 16.04c0 2.84.93 5.45 2.49 7.57L4 29l5.55-1.46a12.98 12.98 0 0 0 6.48 1.73c7.18 0 13.02-5.85 13.02-13.03C29.05 8.85 23.21 3 16.03 3z"/>
+        <div class="p-8 bg-white rounded-3xl shadow hover:shadow-2xl transition">
+          <h3 class="text-xl font-semibold">Project Assistance</h3>
+          <p class="mt-3 text-gray-600">School, diploma, degree and final-year projects with complete documentation,
+            source code and viva support.</p>
+        </div>
+
+        <div class="p-8 bg-white rounded-3xl shadow hover:shadow-2xl transition">
+          <h3 class="text-xl font-semibold">Coding Help</h3>
+          <p class="mt-3 text-gray-600">Python, Java, Web Development and programming logic explained in an easy,
+            student-friendly way.</p>
+        </div>
+
+        <div class="p-8 bg-white rounded-3xl shadow hover:shadow-2xl transition">
+          <h3 class="text-xl font-semibold">Resume & Career Help</h3>
+          <p class="mt-3 text-gray-600">Professional resumes, internship guidance and career direction for students and
+            freshers.</p>
+        </div>
+
+        <div class="p-8 bg-white rounded-3xl shadow hover:shadow-2xl transition">
+          <h3 class="text-xl font-semibold">Technical Consultation</h3>
+          <p class="mt-3 text-gray-600">One-to-one support for academic tools, software setup, errors and project
+            issues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section data-aos="fade-up" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+        How It Works
+      </h2>
+
+      <div class="grid md:grid-cols-4 gap-10 text-center">
+
+        <!-- STEP 1 -->
+        <div data-aos="fade-up" data-aos-delay="100"
+          class="p-8 bg-slate-50 rounded-2xl shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-4">📞</div>
+          <h3 class="font-semibold text-xl mb-2">Contact Us</h3>
+          <p class="text-gray-600 text-sm">
+            Reach us via WhatsApp or contact form.
+          </p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div data-aos="fade-up" data-aos-delay="200"
+          class="p-8 bg-slate-50 rounded-2xl shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-4">📝</div>
+          <h3 class="font-semibold text-xl mb-2">Share Requirements</h3>
+          <p class="text-gray-600 text-sm">
+            Tell us your subject, project or service needs.
+          </p>
+        </div>
+
+        <!-- STEP 3 -->
+        <div data-aos="fade-up" data-aos-delay="300"
+          class="p-8 bg-slate-50 rounded-2xl shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-4">⚙️</div>
+          <h3 class="font-semibold text-xl mb-2">We Work on It</h3>
+          <p class="text-gray-600 text-sm">
+            Our experts prepare quality solutions.
+          </p>
+        </div>
+
+        <!-- STEP 4 -->
+        <div data-aos="fade-up" data-aos-delay="400"
+          class="p-8 bg-slate-50 rounded-2xl shadow hover:shadow-lg transition">
+          <div class="text-4xl mb-4">✅</div>
+          <h3 class="font-semibold text-xl mb-2">Delivery & Support</h3>
+          <p class="text-gray-600 text-sm">
+            On-time delivery with explanation & support.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= PROJECTS ================= -->
+  <section data-aos="fade-up" class="py-24 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">Previous Projects</h2>
+
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-semibold text-lg">Student Management System</h3>
+          <p class="text-gray-600 mt-2">Web application for college projects</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-semibold text-lg">E-Commerce Website</h3>
+          <p class="text-gray-600 mt-2">Business website with payment integration</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-semibold text-lg">Python Automation Project</h3>
+          <p class="text-gray-600 mt-2">Automation & scripting solution</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section data-aos="fade-up" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">What Clients Say</h2>
+
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="bg-white p-8 rounded-xl shadow">
+          <p class="italic text-gray-600">
+            “They helped me complete my final-year project with full documentation. Highly recommended!”
+          </p>
+          <p class="mt-4 font-semibold">— Engineering Student</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow">
+          <p class="italic text-gray-600">
+            “Professional service and fast delivery for our business website.”
+          </p>
+          <p class="mt-4 font-semibold">— Startup Founder</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section data-aos="fade-up" class="py-24 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center">
+    <h2 class="text-4xl font-bold mb-6">Need Help with Assignments or Projects?</h2>
+    <p class="mb-8">Don’t stress about deadlines. BeatXTech is here to help you with academic and technical support —
+      fast, reliable and affordable.</p>
+    <a href="contact.html"
+      class="px-10 py-4 rounded-full bg-white text-blue-600 font-semibold hover:scale-105 transition">
+      Get Instant Help on WhatsApp
+    </a>
+  </section>
+
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919130537754?text=Hello%20I%20need%20help%20with%20your%20services" target="_blank"
+    class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" class="w-7 h-7 fill-white">
+      <path
+        d="M16 .3C7.2.3.1 7.4.1 16.2c0 2.9.8 5.8 2.3 8.3L.1 32l7.7-2.2c2.4 1.3 5.1 2 7.8 2h.1c8.8 0 15.9-7.1 15.9-15.9S24.8.3 16 .3zm0 29.1c-2.4 0-4.7-.6-6.8-1.9l-.5-.3-4.6 1.3 1.2-4.5-.3-.5C3.7 21 3 18.6 3 16.2 3 9.1 8.9 3.2 16 3.2s13 5.9 13 13-5.9 13-13 13zm7.4-9.9c-.4-.2-2.5-1.2-2.9-1.4-.4-.1-.7-.2-1 .2-.3.4-1.1 1.4-1.3 1.7-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.4-2.3-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.2.1-.5 0-.7-.1-.2-1-2.3-1.4-3.2-.4-.9-.8-.8-1.1-.8h-.9c-.3 0-.7.1-1 .5-.3.4-1.4 1.4-1.4 3.4s1.4 4 1.6 4.3c.2.3 2.7 4.2 6.6 5.9.9.4 1.6.6 2.1.8.9.3 1.7.3 2.3.2.7-.1 2.5-1 2.9-2 .4-1 .4-1.8.3-2-.1-.2-.4-.3-.8-.5z" />
     </svg>
-  </span>
-
-  <span class="wa-text">Chat on WhatsApp</span>
-</a>
+  </a>
 
 
-  
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-slate-900 text-slate-300 py-10 text-center">
+    © 2026 BeatxTech. All Rights Reserved.
+  </footer>
 
-  <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      easing: 'ease-out-cubic',
+      once: true
+    });
+  </script>
+
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

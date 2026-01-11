@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BeatxTech</title>
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+          colors: {
+            primary: '#2563EB',
+            secondary: '#7C3AED',
+            accent: '#06B6D4',
+            dark: '#0F172A',
+            muted: '#475569',
+            light: '#F8FAFC'
+          },
+          backgroundImage: {
+            'brand-gradient': 'linear-gradient(135deg, #2563EB, #6366F1, #7C3AED)'
+          },
+          boxShadow: {
+            glow: '0 0 40px rgba(99,102,241,0.35)',
+            premium: '0 20px 40px rgba(15,23,42,0.12)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: linear-gradient(135deg, #25D366, #1EBE5D);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 25px rgba(37, 211, 102, 0.45);
+      z-index: 9999;
+      animation: pulse 2s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+      }
+
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+  </style>
+
+</head>
+
+<body class="bg-light font-sans text-dark">
+
+  <!-- NAVBAR -->
+  <nav class="fixed w-full top-0 z-50 backdrop-blur bg-white/80 border-b">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <h1 class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        BeatxTech
+      </h1>
+
+      <ul class="hidden md:flex gap-8 font-medium">
+        <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+        <li><a href="about.html" class="hover:text-blue-600">About</a></li>
+        <li><a href="services.html" class="hover:text-blue-600">Services</a></li>
+        <li><a href="project-help.html" class="hover:text-blue-600">Projects</a></li>
+        <li>
+          <a href="contact.html"
+            class="px-5 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-glow">
+            Contact
+          </a>
+        </li>
+      </ul>
+
+      <button class="md:hidden text-2xl" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white px-6 pb-4">
+      <a class="block py-2" href="index.html">Home</a>
+      <a class="block py-2" href="about.html">About</a>
+      <a class="block py-2" href="services.html">Services</a>
+      <a class="block py-2" href="project-help.html">Projects</a>
+      <a class="block py-2" href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="pt-36 pb-24 bg-brand-gradient text-white text-center" data-aos="fade-up">
+    <h1 class="text-5xl font-extrabold mb-4">About BeatXTech</h1>
+    <p class="text-lg opacity-90">
+      Empowering Students with Smart Academic & Technical Solutions
+    </p>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section class="py-24 bg-white" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-extrabold mb-8">Who We Are</h2>
+      <p class="text-muted leading-relaxed">
+        <strong>BeatXTech</strong> is a student-focused academic and technical support agency.
+        We help school and college students manage academic pressure by providing
+        assignments, practical files, projects, coding help and exam guidance.
+        <br><br>
+        Our goal is simple — <strong>make learning easier, projects smarter and students confident</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="py-24 bg-light" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+      <div class="bg-white p-8 rounded-3xl shadow-premium">
+        <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+        <p class="text-muted">
+          To support students at every academic stage with affordable, syllabus-based
+          and easy-to-understand academic and technical assistance.
+        </p>
+      </div>
+      <div class="bg-white p-8 rounded-3xl shadow-premium">
+        <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+        <p class="text-muted">
+          To become India’s most trusted student academic & project support platform.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE HELP -->
+  <section class="py-24 bg-white" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-extrabold mb-12 text-center">Who We Help</h2>
+      <div class="grid md:grid-cols-3 gap-10 text-center">
+        <div class="p-6 bg-light rounded-2xl shadow-premium">School Students</div>
+        <div class="p-6 bg-light rounded-2xl shadow-premium">Diploma Students</div>
+        <div class="p-6 bg-light rounded-2xl shadow-premium">Degree & Final-Year Students</div>
+        <div class="p-6 bg-light rounded-2xl shadow-premium">Engineering & Pharmacy</div>
+        <div class="p-6 bg-light rounded-2xl shadow-premium">IT & Science Students</div>
+        <div class="p-6 bg-light rounded-2xl shadow-premium">Beginner Coders</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TRUST -->
+  <section class="py-24 bg-light" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-extrabold mb-12 text-center">
+        Why Students Trust BeatXTech
+      </h2>
+      <ul class="grid md:grid-cols-2 gap-6 text-muted">
+        <li>✔ Student-friendly explanations</li>
+        <li>✔ Affordable & transparent pricing</li>
+        <li>✔ Syllabus-based work</li>
+        <li>✔ On-time delivery</li>
+        <li>✔ Viva & explanation support</li>
+        <li>✔ 24/7 WhatsApp help</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 bg-brand-gradient text-white text-center" data-aos="fade-up">
+    <h2 class="text-4xl font-extrabold mb-6">Need Academic or Project Help?</h2>
+    <p class="mb-8">BeatXTech is here to support you at every step.</p>
+    <a href="contact.html"
+      class="px-10 py-4 rounded-full bg-white text-primary font-semibold shadow-premium hover:scale-105 transition">
+      Contact BeatXTech
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-slate-400 py-10 text-center">
+    © 2026 <span class="text-white font-semibold">BeatXTech</span>. All Rights Reserved.
+  </footer>
+
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919130537754?text=Hello%20I%20need%20help%20with%20your%20services" target="_blank"
+    class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" class="w-7 h-7 fill-white">
+      <path
+        d="M16 .3C7.2.3.1 7.4.1 16.2c0 2.9.8 5.8 2.3 8.3L.1 32l7.7-2.2c2.4 1.3 5.1 2 7.8 2h.1c8.8 0 15.9-7.1 15.9-15.9S24.8.3 16 .3zm0 29.1c-2.4 0-4.7-.6-6.8-1.9l-.5-.3-4.6 1.3 1.2-4.5-.3-.5C3.7 21 3 18.6 3 16.2 3 9.1 8.9 3.2 16 3.2s13 5.9 13 13-5.9 13-13 13zm7.4-9.9c-.4-.2-2.5-1.2-2.9-1.4-.4-.1-.7-.2-1 .2-.3.4-1.1 1.4-1.3 1.7-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.4-2.3-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.2.1-.5 0-.7-.1-.2-1-2.3-1.4-3.2-.4-.9-.8-.8-1.1-.8h-.9c-.3 0-.7.1-1 .5-.3.4-1.4 1.4-1.4 3.4s1.4 4 1.6 4.3c.2.3 2.7 4.2 6.6 5.9.9.4 1.6.6 2.1.8.9.3 1.7.3 2.3.2.7-.1 2.5-1 2.9-2 .4-1 .4-1.8.3-2-.1-.2-.4-.3-.8-.5z" />
+    </svg>
+  </a>
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      easing: 'ease-out-cubic',
+      once: true
+    });
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

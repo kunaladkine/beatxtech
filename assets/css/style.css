@@ -1,0 +1,355 @@
+/* =====================
+   ROOT COLORS & VARIABLES
+===================== */
+:root {
+  --primary: #2563eb;
+  --secondary: #7c3aed;
+  --gradient: linear-gradient(135deg, #2563eb, #7c3aed);
+  --dark: #1f2933;
+  --light: #f9fafb;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* =====================
+   GLOBAL RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* =====================
+   COMMON
+===================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #555;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+header {
+  background: var(--gradient);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.navbar h1 {
+  color: var(--white);
+  font-size: 26px;
+  letter-spacing: 1px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar ul li a {
+  color: var(--white);
+  font-size: 15px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* underline animation */
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: var(--white);
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s;
+}
+
+.navbar ul li a:hover::after {
+  width: 100%;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero {
+  background: var(--gradient);
+  color: var(--white);
+  padding: 120px 0;
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.hero h2 {
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  background: var(--white);
+  color: var(--primary);
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--secondary);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* =====================
+   CARDS GRID
+===================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* gradient border hover */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient);
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.4s;
+}
+
+.card:hover::before {
+  opacity: 0.08;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.card * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =====================
+   FORMS
+===================== */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 120px;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  background: #111827;
+  color: var(--white);
+  padding: 60px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+footer h3,
+footer h4 {
+  margin-bottom: 15px;
+}
+
+footer p,
+footer a {
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+footer a:hover {
+  color: var(--white);
+}
+
+.copy {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+   RESPONSIVE DESIGN
+===================== */
+@media (max-width: 992px) {
+  .hero h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .hero {
+    padding: 90px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .btn {
+    padding: 10px 24px;
+  }
+}
+/* =====================
+   RESPONSIVE NAVBAR
+===================== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  .nav-links.active {
+    max-height: 350px;
+  }
+}
+
